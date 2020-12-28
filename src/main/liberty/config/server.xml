@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="${project.name}">
+
+    <featureManager>
+        <feature>microProfile-3.3</feature>
+        <feature>mpGraphQL-1.0</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443"/>
+
+    <webApplication location="${project.name}.war" contextRoot="/">
+        <classloader apiTypeVisibility="+third-party" />
+    </webApplication>
+
+    <mpMetrics authentication="false"/>
+
+		<!-- Import default Java trust store for root certs -->
+    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" />
+    <keyStore id="defaultTrustStore" location="${javaKeystoreLocation}" type="JKS" password="changeit" />
+
+    <!-- Configure MicroProfile JWT Auth -->
+    <mpJwt
+        id="myMpJwt"
+        jwksUri="https://${oktaDomain}/oauth2/default/v1/keys"
+        issuer="https://${oktaDomain}/oauth2/default"
+        audiences="api://default"
+    />
+
+    <logging consoleLogLevel="INFO" />
+
+</server>
