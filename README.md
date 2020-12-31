@@ -21,7 +21,7 @@ This repository shows how to create a GrapQL API with MicroProfile and use JWT f
 To install this example, run the following commands:
 
 ```bash
-git clone git@github.com:oktadeveloper/okta-microprofile-graphql-example.git
+git clone https://github.com/oktadeveloper/okta-microprofile-graphql-example.git
 cd okta-microprofile-graphql-example
 ```
 
