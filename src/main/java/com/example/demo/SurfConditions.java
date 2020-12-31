@@ -31,12 +31,12 @@ public class SurfConditions {
         int swellPeriodSeconds = (int)((Math.random() * (15 - 8)) + 8);
 
         SurfConditions report = new SurfConditions(
-                location,  // just the input location
-                chanceOfRain,  // random int between 0-100
-                windKnots,  // random double between 5-40
-                windDirection,  // random direction
-                swellHeight,  // random int between 2-14
-                swellPeriodSeconds // random int between 8-15
+            location,  // just the input location
+            chanceOfRain,  // random int between 0-100
+            windKnots,  // random double between 5-40
+            windDirection,  // random direction
+            swellHeight,  // random int between 2-14
+            swellPeriodSeconds // random int between 8-15
         );
 
         LOG.info(report.toString());

@@ -1,6 +1,6 @@
 # MicroProfile REST API with JWT Auth
 
-This repository shows how to create a GrapQL API with MicroProfile and use JWT for authentication. Please read <need a link!!!> to see how this example was created.
+This repository shows how to create a GrapQL API with MicroProfile and use JWT for authentication. Please read [How to GraphQL with MicroProfile][blog-post] to see how this example was created.
 
 **Prerequisites:** 
 
@@ -8,7 +8,6 @@ This repository shows how to create a GrapQL API with MicroProfile and use JWT f
 - **Maven**: Maven can be installed according to [the instructions on their website](https://maven.apache.org/install.html). You could also use  [SDKMAN](https://sdkman.io/) or [Homebrew](https://brew.sh/).
 - **Okta Developer Account**: Go to [our developer site](https://developer.okta.com/signup/) and sign up for a free developer account.
 - **HTTPie**: Install it according to [the docs on their site](https://httpie.org/doc#installation).
-
 
 > [Okta](https://developer.okta.com/) has Authentication and User Management APIs that reduce development time with instant-on, scalable user infrastructure. Okta's intuitive API and expert support make it easy for developers to authenticate, manage, and secure users and roles in any application.
 
@@ -22,8 +21,8 @@ This repository shows how to create a GrapQL API with MicroProfile and use JWT f
 To install this example, run the following commands:
 
 ```bash
-git clone https://github.com/oktadeveloper/okta-microprofile-jwt-auth-example.git
-cd okta-microprofile-jwt-auth-example
+git clone git@github.com:oktadeveloper/okta-microprofile-graphql-example.git
+cd okta-microprofile-graphql-example
 ```
 
 ### Create an Application in Okta
@@ -39,12 +38,11 @@ Modify `pom.xml` to use your Okta domain:
 ```xml
 <properties>
   ...
-  <oktaDomain>{yourOktaDomain}</oktaDomain>
+  <liberty.var.oktaDomain>{yourOktaDomain}</liberty.var.oktaDomain>
 </properties>
 ```
 
 **NOTE:** The value of `{yourOktaDomain}` should be something like `dev-123456.okta.com`. Make sure you don't include `-admin` in the value!
-
 
 Build your app and start the server:
 
@@ -52,9 +50,15 @@ Build your app and start the server:
 mvn liberty:run
 ```
 
-To generate a JWT access token, go to https://oidcdebugger.com/ and fill out the values for your OIDC application.
+To generate a JWT access token, go to <https://oidcdebugger.com> and fill out the values for your OIDC application.
 
-In a shell, store the token in a variable. Then use it to hit the API and authentication with JWT:
+In a shell, store the token in a variable. 
+
+```bash
+TOKEN=eyJraWQiOiJBX05XeGVXcVdrNG5pUjBFWlJnbWg5X3JJ...
+```
+
+Then, use it to hit the API and authenticate with OAuth 2.0:
 
 ```
 http POST :9080/graphql query='{ surfReport(location:"Texas") {windKnots,swellHeight,swellPeriodSeconds} }' "Authorization: Bearer $TOKEN"
@@ -64,14 +68,15 @@ http POST :9080/graphql query='{ surfReport(location:"Texas") {windKnots,swellHe
 
 This example uses the following open source libraries:
 
-* [Eclipse MicroProfile](https://microprofile.io/) 
-* [Java JWT](https://github.com/jwtk/jjwt)
+* [Eclipse MicroProfile](https://microprofile.io/)
 * [Open Liberty](https://openliberty.io/)
 
 ## Help
 
-Please post any questions as comments on the [blog post](https://developer.okta.com/blog/2019/07/10/java-microprofile-jwt-auth), or on the [Okta Developer Forums](https://devforum.okta.com/).
+Please post any questions as comments on the [blog post][blog-post], or on the [Okta Developer Forums](https://devforum.okta.com/).
 
 ## License
 
 Apache 2.0, see [LICENSE](LICENSE).
+
+[blog-post]: https://developer.okta.com/blog/2021/01/11/microprofile-graphql
