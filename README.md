@@ -52,7 +52,7 @@ mvn liberty:run
 
 To generate a JWT access token, go to <https://oidcdebugger.com> and fill out the values for your OIDC application.
 
-In a shell, store the token in a variable. 
+In a shell, store the token in a variable:
 
 ```bash
 TOKEN=eyJraWQiOiJBX05XeGVXcVdrNG5pUjBFWlJnbWg5X3JJ...
