@@ -1,4 +1,4 @@
-# MicroProfile REST API with JWT Auth
+# MicroProfile GraphQL API Example
 
 This repository shows how to create a GrapQL API with MicroProfile and use JWT for authentication. Please read [How to GraphQL with MicroProfile][blog-post] to see how this example was created.
 
