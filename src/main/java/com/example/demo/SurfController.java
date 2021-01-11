@@ -8,6 +8,7 @@ import javax.annotation.security.RolesAllowed;
 
 @GraphQLApi
 public class SurfController {
+
     @RolesAllowed("Everyone")
     @Query("surfReport")
     public SurfConditions getSurfReport(@Name("location") String location) {

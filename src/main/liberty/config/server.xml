@@ -16,7 +16,7 @@
 
     <mpMetrics authentication="false"/>
 
-		<!-- Import default Java trust store for root certs -->
+    <!-- Import default Java trust store for root certs -->
     <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" />
     <keyStore id="defaultTrustStore" location="${javaKeystoreLocation}" type="JKS" password="changeit" />
 

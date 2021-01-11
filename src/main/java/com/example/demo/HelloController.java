@@ -1,18 +1,18 @@
 package com.example.demo;
 
-import org.eclipse.microprofile.graphql.GraphQLApi;
-import org.eclipse.microprofile.graphql.Query;
-import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Singleton;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
 
 /**
  *
  */
-@GraphQLApi
-@ApplicationScoped
+@Path("/hello")
+@Singleton
 public class HelloController {
 
-    @Query("hello")
+    @GET
     public String sayHello() {
-        return "Hello world!";
+        return "Hello World";
     }
 }
